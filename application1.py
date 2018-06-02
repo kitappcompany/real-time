@@ -24,7 +24,8 @@ channelname = []
 global messagesPerChannel
 messagesPerChannel = {}
 global Time
-@app.route("/")
+
+@app.route("/",methods=["GET"])
 def index():
     try:
         return render_template("index.html",channelname=channelname)
