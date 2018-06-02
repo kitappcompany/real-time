@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 //  var username = document.querySelector('#username').value;
 
 //username.length == 0
-
+  alert("This web site may not work due to free server! This is for only test");
   if (!localStorage.getItem('username')) {
     username = prompt("enter name:", '');
 
