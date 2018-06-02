@@ -1,0 +1,38 @@
+#messages {
+  color: red;
+}
+
+
+li {
+  background-color: lightgreen;
+
+  margin-bottom: 15px;
+  border-radius: 7px;
+  width: 200px;
+
+}
+
+.userMesaj {
+  background-color: lightblue;
+  margin-left: 200px;
+  color: black;
+  margin-bottom: 15px;
+  border-radius: 7px;
+  width: 200px;
+}
+
+#myMesaj {
+
+  max-height: 100px;
+  min-height: 30px;
+  width: 45%;
+  border-radius: 7px;
+
+
+}
+#Send {
+  max-height: 50px;
+  min-height: 30px;
+  width: auto+50px;
+  border-radius: 7px;
+}

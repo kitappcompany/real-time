@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title >{{channelName}}</title>
+    <script src="{{ url_for('static',filename='chat.js') }}">  </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style media="screen">
+
+    </style>
+  </head>
+  <body>
+
+
+
+<div >
+    <h5 >{{channelName}} </h5> <h3 id="username"></h3>
+    <input id="Chan_Name" type="hidden" name="" value="{{channelName}}" >
+
+
+    <strong> Istifadeciler: </strong>
+    <ul id="messagesO"></ul>
+
+
+
+    <strong>Mesajlar</strong>
+    <ul id="messages1"></ul>
+    </ul>
+
+    <form id="SendMessage">
+      <input id="myMesaj" type="text" >
+      <input type="submit" id="Send" value="  Send  ">
+    </form>
+
+</div>
+</body>
+</html>

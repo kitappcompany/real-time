@@ -3,7 +3,7 @@ from flask_socketio import SocketIO, emit
 from flask_session import Session
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
-
+import datetime
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "jnjc(U&&*MXS_)"
@@ -23,7 +23,7 @@ channelname = []
 
 global messagesPerChannel
 messagesPerChannel = {}
-
+global Time
 @app.route("/")
 def index():
     try:
@@ -61,11 +61,14 @@ def view_chan():
         usernameNow = request.form.get('username')
 
         if NameChannel in messagesPerChannel:
-            newChannel = {usernameNow:["artiq kanala qosuldunuz"]}
+            Time = datetime.datetime.now()
+            newChannel = {usernameNow:[" ",str(Time)]}
             messagesPerChannel[NameChannel].update(newChannel)
             return jsonify({"cavab":messagesPerChannel[NameChannel][usernameNow],"success":"2"})
         else:
-            newChannel = {NameChannel:{usernameNow:["bu kanlin birinci uzvusuz!"]}}
+            Time = datetime.datetime.now()
+
+            newChannel = {NameChannel:{usernameNow:[" ",str(Time)]}}
             messagesPerChannel.update(newChannel)
             return jsonify({"cavab":newChannel, "success":"3"})
 
@@ -89,6 +92,7 @@ def MesajAdd(data):
     User_Name = data["User_Name"]
     Chan_Name = data["Chan_Name"]
     mesaj = data["mesaj"]
-    #newChannel = {Chan_Name:{User_Name:mesaj}}
-    #messagesPerChannel += newChannel
     messagesPerChannel[Chan_Name][User_Name].append(mesaj)
+    #Time = datetime.datetime.now()
+    Time = data["time"]
+    messagesPerChannel[Chan_Name][User_Name].append(str(Time))

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Chat</title>
+    <script src="{{ url_for('static',filename='index.js') }}">
+
+    </script>
+  </head>
+  <body>
+
+<div >
+    <div id="UserName" ></div>
+</div>
+
+<div >
+  <ul id="names">
+    {% for name in channelname %}
+      <li ><a href="{{ url_for('chat', name=name) }}"  class="linkButton" data-chan="{{name}}">{{name}}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+
+<div>
+  <form action="{{url_for('index')}}">
+
+  <input id="Button" type="submit" name="" value="Create New Channel">
+</form>
+</div>
+
+<div id="chat_html">
+
+</div>
+
+
+  </body>
+</html>
